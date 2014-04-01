@@ -16,7 +16,7 @@ module Lyly
     # See : http://www.rubyist.net/~slagell/ruby/instancevars.html
     def initialize(proto=nil, value=nil)
       @proto = proto		# empty proto
-      @value = value            # A simple value ;)
+      @value = value            # empty value
       @slots = {}               # This is an empty hash : http://ruby.about.com/od/rubyfeatures/a/hashes.htm
     end
     

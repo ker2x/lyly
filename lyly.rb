@@ -13,5 +13,5 @@ module Lyly
     eval File.read(File.join(File.dirname(__FILE__), file))
   end
   
-  load "boot.lyl"
+  load "boot.ly2"
 end
