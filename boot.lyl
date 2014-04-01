@@ -1,11 +1,13 @@
 # Create Hello prototype from Object
-set("Hello", Object clone)
+set("Hello", clone)
+# it's the same as : set("Hello", Object clone)
+# it's the same as : Object set("Hello", Object clone)
 
-# Set message value
+# Set message value (eg : Hello.message = "Hello world...")
 Hello set("message", "Hello World ! I'm lyly")
 
-# say is a method printing "message"
-Hello set("sayhello", method(self message println))
+# say is a method printing "message" (eg : Hello.sayhello() { ...})
+Hello set("sayhello", method(Hello message println))
 
 # call sayHello of prototype Hello
 Hello sayhello
