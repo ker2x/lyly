@@ -94,7 +94,7 @@ module Lyly
   # inspect, usefull debugging stuff here
     RuntimeObject["inspect"] = proc do |receiver, caller|
     puts
-    puts "INSPECTION : " + receiver.proto.inspect
+    puts "INSPECTION : " + receiver.inspect
     puts
   end
 
