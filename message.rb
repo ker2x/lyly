@@ -65,6 +65,7 @@ module Lyly
         # Marrrvelous parsing code!
         while i < code.size
           case code[i..-1]
+
           when /\A("[^"]*")/, # string
                /\A(\.)+/, # dot
                /\A(\n)+/, # line break
@@ -78,6 +79,7 @@ module Lyly
             line += $1.count("\n")
             message = m
             i += $1.size - 1
+
           when /\A(\(\s*)/ # arguments
             start = i + $1.size
             level = 1
@@ -90,14 +92,17 @@ module Lyly
             code_chunk = code[start..i-1]
             message.args = parse_all(code_chunk, line)
             line += code_chunk.count("\n")
+
           when /\A,(\s*)/
             line += $1.count("\n")
             messages.concat parse_all(code[i+1..-1], line)
             break
+
           when /\A(\s+)/, # ignore whitespace
                /\A(#.*$)/ # comments
             line += $1.count("\n")
             i += $1.size - 1
+
           else
             raise "Unknow char #{code[i].inspect} at line #{line}"
           end

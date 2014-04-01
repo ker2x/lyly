@@ -17,6 +17,7 @@ module Lyly
     end
   end
   
+  # the method method
   Lobby["method"] = proc do |receiver, caller, message|
     Method.new(message)
   end

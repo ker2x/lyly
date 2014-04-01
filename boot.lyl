@@ -1,33 +1,12 @@
-Object set_slot("and", method(
-  arguments at(0) eval_on(caller)
-))
+# Create Hello prototype from Object
+set("Hello", Object clone)
 
-Object set_slot("or", method(
-  self
-))
+# Set message value
+Hello set("message", "Hello World ! I'm lyly")
 
-false set_slot("and", false)
-false set_slot("or", method(
-  arguments at(0) eval_on(caller)
-))
+# say is a method printing "message"
+Hello set("sayhello", method(self message println))
 
-nil set_slot("and", nil)
-nil set_slot("or", method(
-  arguments at(0) eval_on(caller)
-))
-
-set_slot("if", method(
-  set_slot("condition", arguments at(0) eval_on(caller))
-  condition and(
-    arguments at(1) eval_on(caller)
-  )
-  condition or(
-    arguments at(2) eval_on(caller)
-  )
-))
-
-if(false,
-  "condition is true" println,
-  # else
-  "condition is false" println
-)
+# call sayHello of prototype Hello
+Hello sayhello
+println # empty line

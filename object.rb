@@ -1,6 +1,8 @@
 # This is *The* Object, you create new object by cloning existing ones
 # So you need One cloneable object, here it is : 
 
+# Lyly object contain slot in which we can store methods & values
+
 module Lyly
   class Object
 
@@ -78,7 +80,7 @@ module Lyly
   end
   
   # add method to a proto
-  RuntimeObject["set_slot"] = proc do |receiver, caller, name, value|
+  RuntimeObject["set"] = proc do |receiver, caller, name, value|
     name = name.call(caller).value
     receiver[name] = value.call(caller)
   end
@@ -89,6 +91,14 @@ module Lyly
     Lobby["nil"]
   end
 
+  # inspect, usefull debugging stuff here
+    RuntimeObject["inspect"] = proc do |receiver, caller|
+    puts
+    puts "INSPECTION : " + receiver.proto.inspect
+    puts
+  end
+
+  # Lobby, where all object meet.
   Lobby = RuntimeObject.clone
   Lobby["Lobby"] = Lobby
   Lobby["Object"] = RuntimeObject
