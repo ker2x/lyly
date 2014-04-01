@@ -7,7 +7,7 @@ set("Hello", clone)
 Hello set("message", "Hello World ! I'm lyly")
 
 # say is a method printing "message" (eg : Hello.sayhello() { ...})
-Hello set("sayhello", method(Hello message println))
+Hello set("sayhello", method(self message println))
 
 # call sayHello of prototype Hello
 Hello sayhello
