@@ -1,0 +1,49 @@
+= tinyrb
+
+A tiny subset of Ruby with a Lua'esc VM.
+
+Everything in TinyRb should run in the big Ruby.
+(except bugs and things that don't comply to the principle of least surprise.)
+But not everything in the big Ruby should run in tinyrb.
+
+This is a work in progress and not usable for "real things" yet.
+See TODO for a couple of those things that need to be done.
+
+http://github.com/macournoyer/tinyrb
+#tinyrb on freenode
+
+== Install
+
+  make
+  make test # optional
+  ./tinyrb -h
+
+== What WON'T be in tinyrb (tiny patches accepted)
+* for
+* redo, retry
+* if ... do, while ... do, etc
+* alias keyword (see alias_method)
+* undef keyword (see undefine_method)
+* throw, catch
+* Alternate string delimiters (%q, %Q, etc.)
+* heredoc strings
+* Parallel assignment (a, b = 1, 2)
+* :: as . (Class::new)
+* Character code literal (?c)
+* protected, private, public (yes everything is public, mind you)
+* ObjectSpace
+* $SAFE (but Sandbox mode at the VM level)
+* ... others to come for sure.
+
+== Credits
+Inspired by:
+* lua,     http://www.lua.org
+* tinypy,  http://tinypy.org
+* potion,  http://github.com/why/potion
+
+kvec.h and khash.h (c) 2008, by Attractive Chaos <attractivechaos@aol.co.uk>
+GC Copyright 1988, 1989 Hans-J. Boehm, Alan J. Demers
+PCRE Copyright (c) 1997-2008 University of Cambridge released under BSD license
+
+tinyrb is Copyright (c) Marc-Andre Cournoyer <macournoyer@gmail.com> and
+released under Ruby license

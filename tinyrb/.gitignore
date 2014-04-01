@@ -1,0 +1,16 @@
+.DS_Store
+*.swp
+*~
+*.o
+*.lo
+*.la
+*.rbc
+
+vm/grammar.c
+
+tinyrb
+tinyrb-*
+
+vendor/gc
+vendor/peg
+vendor/pcre
