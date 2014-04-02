@@ -10,6 +10,8 @@ Object set("Hello", Object clone)
 # 2nd arg is : how is it create
 # here we create a new object named "Hello" which is created by cloning the Object object.
 
+# why "set" and not "create" ? Because lyly is "create-on-write"
+
 # Set message value (eg : Hello.message = "Hello world...")
 # Here, we create the "message" value
 # the Hello object have the "set" method because we cloned "Object" that contain this method
