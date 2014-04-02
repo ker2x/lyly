@@ -44,19 +44,11 @@ module Lyly
     
     ## The call method is used to eval an object.
     ## By default objects eval to themselves.
-    # It simply means we accept any number of arguments,ignore them, return self. 
-    # This method will be overridden in Message & Method classes.
-    # eg.:
-    #   object["clone"] = proc { |receiver, context| receiver.clone }
-    #   you can call it this way:
-    #   object["clone"].call(receiver, context)
-    #   and it will execute : receiver.clone
-    #   i have no idea why there is a context parameter in the exemple above.
     #def call(*)
     #  self
     #end
     
-    # Of course, you can clone on object, that's the whole point of Mio ;)
+    # Of course, you can clone on object, that's the whole point of Lyly ;)
     # 1st : Why the clone method do a dup ?! 
     # Explanation : http://www.arnab-deka.com/posts/2009/07/ruby-dup-vs-clone/
     #
