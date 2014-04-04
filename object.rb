@@ -28,9 +28,14 @@ module Lyly
     # object["bar"] is calling the [] methode with "bar" as parameter.
     # like : object.[]("bar")
     def [](name)
-      return @slots[name] if @slots.key?(name)
-      return @proto[name] if @proto
-      raise "Missing slot: #{name}"
+      begin
+        return @slots[name] if @slots.key?(name)
+        return @proto[name] if @proto
+        raise "Missing slot: #{name}"
+      rescue Exception => e  
+        puts e.message
+        puts e.backtrace.inspect  
+      end
     end
     
     ## Set a slot
@@ -84,7 +89,7 @@ module Lyly
   end
 
   RuntimeObject["repl"] = proc do |receiver, caller|
-    puts "REPL"
+    puts "Launching REPL : type \"die\" to exit."
     loop do
       line = Readline::readline(">> ")
       Readline::HISTORY.push(line)
