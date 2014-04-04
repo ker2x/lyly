@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
 
 $:.unshift "."
-require "object"
-require "message"
-require "method"
+
 require "readline"
+require "libs/object"
+require "libs/message"
+require "libs/method"
 
 module Lyly
   def self.eval(code)
@@ -16,5 +17,5 @@ module Lyly
     eval File.read(File.join(File.dirname(__FILE__), file))
   end
   
-  load "boot.ly2"
+  load "test/boot.ly2"
 end

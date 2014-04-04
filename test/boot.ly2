@@ -8,6 +8,5 @@ Hello set("sayhello", method(self message println))
 Hello sayhello
 "* Printing the integer 42" println
 42 println 
-"* test completed!" println
-"* lauching REPL : " println
+"* test completed!" println "* lauching REPL : " println
 repl
