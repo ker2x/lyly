@@ -12,7 +12,6 @@ module Lyly
       context["self"] = receiver
       context["caller"] = caller
       context["arguments"] = Lobby["List"].clone(args)
-      
       @message.call(context)
     end
   end

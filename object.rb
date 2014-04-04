@@ -83,9 +83,20 @@ module Lyly
     Lobby["nil"]
   end
 
-  # inspect, usefull debugging stuff here
-  RuntimeObject["inspect"] = proc do |receiver, caller|
-    puts "INSPECTION : " + receiver.inspect
+  RuntimeObject["repl"] = proc do |receiver, caller|
+    puts "REPL"
+    loop do
+      line = Readline::readline(">> ")
+      Readline::HISTORY.push(line)
+      message = Message.parse(line)
+      value = message.call(Lobby) if line
+      puts" => #{value.inspect}"
+    end
+  end
+
+  RuntimeObject["die"] = proc do
+    puts "Goodbye!"
+    exit
   end
 
   # Lobby, where all object meet.

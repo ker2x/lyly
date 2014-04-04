@@ -108,6 +108,7 @@ module Lyly
           end
           i += 1
         end
+        #puts messages.inspect    #uncomment for debug
         messages
       end
   end

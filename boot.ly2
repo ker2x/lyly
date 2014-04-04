@@ -1,28 +1,13 @@
 # Create Hello prototype from Object
-Object set("Hello", Object clone)
-# it's the same as : set("Hello", Object clone)
-# it's the same as : set("Hello", clone)
-# how does it works ?
-# the syntax here is : Object <space> method
-# we call the method set() from object "Object"
-# the method set() take 2 args and is used to create something
-# 1st arg is : name of the new object
-# 2nd arg is : how is it create
-# here we create a new object named "Hello" which is created by cloning the Object object.
-
+# we create a new object named "Hello" which is created by cloning the Object object.
 # why "set" and not "create" ? Because lyly is "create-on-write"
-
-# Set message value (eg : Hello.message = "Hello world...")
-# Here, we create the "message" value
-# the Hello object have the "set" method because we cloned "Object" that contain this method
-# However, the "message" value will only exist in the "Hello" object (and all object that will clone "Hello")
-Hello set("message", "Hello World ! I'm lyly")
-
-# say is a method printing "message" (eg : Hello.sayhello() { ...})
+Object set("Hello", Object clone)
+Hello set("message", "Hello World ! I'm Lyly !")
 Hello set("sayhello", method(self message println))
-
-# call sayHello of prototype Hello
+"* The next line should be : Hello World ! I'm Lyly !" println
 Hello sayhello
-println # empty line
-
-# Object sayHello <- it will fail :  Missing slot: sayHello (RuntimeError)
+"* Printing the integer 42" println
+42 println 
+"* test completed!" println
+"* lauching REPL : " println
+repl

@@ -2,6 +2,7 @@ $:.unshift "."
 require "object"
 require "message"
 require "method"
+require "readline"
 
 module Lyly
   def self.eval(code)
