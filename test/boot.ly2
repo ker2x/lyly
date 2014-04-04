@@ -4,10 +4,15 @@
 Object set("Hello", Object clone)
 Hello set("message", "Hello World ! I'm Lyly !")
 Hello set("sayhello", method(self message println))
+
 "* The next line should be : Hello World ! I'm Lyly !" println
 Hello sayhello
+
 "* Printing the integer 42" println
 42 println 
-"* test completed!" println "* lauching REPL : " println
+
+"* test completed!" println 
+"* lauching REPL : " println
 repl
-"goodye" println
+
+"goodbye" println

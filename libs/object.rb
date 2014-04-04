@@ -92,12 +92,11 @@ module Lyly
     puts "Launching REPL : type \"die\" to exit."
     loop do
       line = Readline::readline(">> ")
-      Readline::HISTORY.push(line)
       break if line == "die"
+      Readline::HISTORY.push(line)
       message = Message.parse(line)
       value = message.call(Lobby) if line
       puts " => #{message.inspect}"
-      #puts" => #{value.inspect}"
     end
   end
 
