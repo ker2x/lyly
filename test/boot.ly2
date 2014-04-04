@@ -10,3 +10,4 @@ Hello sayhello
 42 println 
 "* test completed!" println "* lauching REPL : " println
 repl
+"goodye" println

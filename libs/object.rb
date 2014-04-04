@@ -93,9 +93,11 @@ module Lyly
     loop do
       line = Readline::readline(">> ")
       Readline::HISTORY.push(line)
+      break if line == "die"
       message = Message.parse(line)
       value = message.call(Lobby) if line
-      puts" => #{value.inspect}"
+      puts " => #{message.inspect}"
+      #puts" => #{value.inspect}"
     end
   end
 
