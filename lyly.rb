@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 $:.unshift "."
 require "object"
 require "message"
