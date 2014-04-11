@@ -2,6 +2,7 @@
 
 $:.unshift "."
 
+require "java"
 require "readline"
 require "libs/object"
 require "libs/message"

@@ -6,64 +6,54 @@
 
 grammar lyly;
 
-//terminator : '\n' | ';';
+NL : '\r'? '\n';
+SC : ';';
+DOT : '.';
+Terminator : (NL|SC);
 
-// Any number including number begining with 0
-// Because no octal tyvm
-INT : 
-        Digit+
+WS
+    : (' '|'\t')+
+    -> skip;
+
+String : '"' ~('\\' | '"')* '"';
+
+LineComment
+    :   '//' ~[\r\n]*
+    -> skip;
+
+BlockComment
+    :   '/*' .*? '*/'
+    -> skip;
+
+Number
+    :   Int
+    |   Hex
+    |   Float
     ;
 
-// Hex IS usefull, 0x... 0X... as usual :)
-HEX
-    :
-        '0'[xX] HexDigit+
-    ;
+Int : Digit+;
 
-// Because this FPU thingy is pretty common now. ;)
-FLOAT
-    :
-        Digit+ '.' Digit* ExponentPart?
+Hex : '0'[xX] HexDigit+;
+
+Float 
+    :   Digit+ '.' Digit* ExponentPart?
     |   '.' Digit+ ExponentPart?
     |   Digit+ ExponentPart?
     ;
 
 
 fragment
-    Digit
-    :
-        [0-9]
-    ;
+    Digit : [0-9];
 
 fragment
-    HexDigit
-    :
-        [0-9a-fA-F]
-    ;
+    HexDigit : [0-9a-fA-F];
 
 fragment
-    ExponentPart
-    :
-        [eE] [+-]? Digit+
-    ;
+    ExponentPart : [eE] [+-]? Digit+;
 
 fragment
-    HexExponentPart
-    :
-        [pP] [+-]? Digit+
-    ;
+    HexExponentPart : [pP] [+-]? Digit+;
 
-LineComment
-    :
-        '//' ~[\r\n]*
-        -> skip
-    ;
-
-BlockComment
-    :
-        '/*' .*? '*/'
-        -> skip
-    ;
 
 
              
